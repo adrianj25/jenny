@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Compra/Venta</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Compra/Venta</h1>
+        <form>
+            <label for="producto">Producto:</label>
+            <select name="producto" id="producto">
+                <option value="galletas">Galletas</option>
+                <option value="pan">Pan</option>
+            </select>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" required>
+
+            <label for="tipo">Tipo de operación:</label>
+            <select name="tipo" id="tipo">
+                <option value="compra">Compra</option>
+                <option value="venta">Venta</option>
+            </select>
+
+            <input type="submit" value="Registrar">
+        </form>
+        <a href="index.html">Volver al inicio</a>
+    </div>
+</body>
+</html>

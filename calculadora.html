@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversiones</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            color: #5a1f1f;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8d7da;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #b03e49;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label, p {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            padding: 10px;
+            border: 2px solid #b03e49;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #b03e49;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #872935;
+        }
+
+        p#resultado {
+            text-align: center;
+            font-size: 1.2em;
+            color: #872935;
+        }
+
+        .btn-volver {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-volver a {
+            text-decoration: none;
+            background-color: #b03e49;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #b03e49;
+            transition: background-color 0.3s;
+        }
+
+        .btn-volver a:hover {
+            background-color: #872935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Conversiones</h1>
+        <form id="form-conversion">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" step="any" required>
+
+            <label for="unidad">Convertir de:</label>
+            <select id="unidad">
+                <option value="onzas">Onzas a Gramos y Kilos</option>
+                <option value="libras">Libras a Gramos y Kilos</option>
+            </select>
+
+            <button type="button" onclick="convertir()">Calcular</button>
+        </form>
+
+        <p id="resultado"></p>
+
+        <div class="btn-volver">
+            <a href="index.html">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        function convertir() {
+            const cantidad = parseFloat(document.getElementById('cantidad').value);
+            const unidad = document.getElementById('unidad').value;
+            let gramos = 0;
+            let kilos = 0;
+
+            if (unidad === 'onzas') {
+                gramos = cantidad * 28.3495; // Onzas a gramos
+            } else if (unidad === 'libras') {
+                gramos = cantidad * 453.592; // Libras a gramos
+            }
+
+            kilos = gramos / 1000; // Gramos a kilos
+
+            document.getElementById('resultado').innerHTML = `
+                Resultado: <br>
+                <strong>${gramos.toFixed(2)}</strong> gramos<br>
+                <strong>${kilos.toFixed(2)}</strong> kilos
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Venta</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f1ea;
+            color: #5a3d2b;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fdfcfb;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d4b8a8;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b5e34;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            padding: 10px;
+            border: 2px solid #8b5e34;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #8b5e34;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #603e23;
+        }
+
+        p#resultado {
+            text-align: center;
+            font-size: 1.2em;
+            color: #603e23;
+        }
+
+        .btn-volver {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-volver a {
+            text-decoration: none;
+            background-color: #8b5e34;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #8b5e34;
+            transition: background-color 0.3s;
+        }
+
+        .btn-volver a:hover {
+            background-color: #603e23;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Venta</h1>
+        <form id="form-venta">
+            <label for="producto">Producto:</label>
+            <input type="text" id="producto" required>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" step="any" required>
+
+            <label for="precio">Precio por Unidad:</label>
+            <input type="number" id="precio" step="any" required>
+
+            <label for="cliente">Nombre del Cliente:</label>
+            <input type="text" id="cliente" required>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" required>
+
+            <button type="button" onclick="calcularTotal()">Calcular Total</button>
+        </form>
+
+        <p id="resultado"></p>
+
+        <div class="btn-volver">
+            <a href="index.html">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const cantidad = parseFloat(document.getElementById('cantidad').value);
+            const precio = parseFloat(document.getElementById('precio').value);
+            const total = cantidad * precio;
+
+            document.getElementById('resultado').innerHTML = `
+                <strong>Total:</strong> $${total.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>
