@@ -44,11 +44,30 @@
             background-color: #db7093;
             color: white;
         }
+
+        .image-link img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .image-link img:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenida jenny</h1>
+        <h1>Bienvenida Jenny</h1>
+        
+        <!-- Enlace con la imagen -->
+        <div class="image-link">
+            <a href="celebracion.html">
+                <img src="img/pastel.jpg" alt="Imagen de celebración">
+            </a>
+        </div>
         
         <!-- Enlaces en el menú -->
         <a href="ventas.html">Registrar Venta</a>
